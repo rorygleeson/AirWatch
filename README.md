@@ -23,9 +23,9 @@ Hardware
 AirWatch WiFi
 --------------
 
-![alt text](https://github.com/rorygleeson/AirWatch/tree/master/Devices/LoRa)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/readme.md)
 
 AirWatch LoRa
 --------------
 
-![alt text](https://github.com/rorygleeson/AirWatch/tree/master/Devices/WiFi)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/readme.md)
