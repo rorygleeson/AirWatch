@@ -10,7 +10,7 @@ It uses the Adafruit Feather M0 RFM9X dev board.
 
 It uses the following sensors:
 
-PMS5003 - Particle Matter. PM1.0, PM2.5 and PM10.0 concentration in both standard & enviromental units
+PMS 5003 - Particle Matter. PM1.0, PM2.5 and PM10.0 concentration in both standard & enviromental units
 
 BME280 - Temperature, humidity and altitude (pressure). Humidty effects the particle matter count of the PMS5003, hence why included.
 
@@ -57,12 +57,16 @@ average price: US $13.30 USD
  
 
 5V DC 1A POWER ADAPTER WITH MICRO USB PLUG
+
 https://www.auselectronicsdirect.com.au/5v-dc-1a-power-adapter-with-micro-usb-plug?gclid=EAIaIQobChMI6qyM-dmQ4gIVQo-PCh2wrABwEAQYBiABEgLqBvD_BwE
+
 average price: $7.95 AUD /  5.56 USD
 
 
 Enclosure
+
 https://www.jaycar.com.au/jiffy-box-grey-130-x-68-x-44mm/p/HB6023
+
 average price: $3.95 AUD  / 2.76 USD
 
 
