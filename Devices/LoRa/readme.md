@@ -1,4 +1,5 @@
-"# FeatherM0-LoRa-TTN-LMIC-Sleep-PMS5003"
+AirWatch WIFI
+=============
 
 This project aims to build a cheap affordable air quality monitoring device. 
 
