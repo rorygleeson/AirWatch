@@ -69,16 +69,11 @@ https://www.jaycar.com.au/jiffy-box-grey-130-x-68-x-44mm/p/HB6023
 average price: $3.95 AUD  / 2.76 USD
 
 
-
-
-
 1 X 3.3K Resistor
 Connector wires
 PCB solder board
 
 Total price =   $58.74  USD
-
-
 
 
 
@@ -99,8 +94,6 @@ https://github.com/adafruit/Adafruit_Sensor
 
 12C-Senor-lib
 https://github.com/orgua/iLib
-
-
 
 
 MCCI LoRaWAN LMIC Library
