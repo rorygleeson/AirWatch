@@ -21,8 +21,7 @@ The PMS5003 does have an enable pin (SET) which can be pulled low to turn the se
 
 Same with other sensors, and also important to ensure the LoRa chip itself is put to sleep mode when we enter sleep mode with the Feather M0.
 
-
-
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/LORA1-Non-Solar.png)
 
 
 
