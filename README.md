@@ -1,5 +1,5 @@
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/LogoForGitHub.png)
+<p align="center">  ![alt text](https://github.com/rorygleeson/AirWatch/blob/master/LogoForGitHub.png) </p>
 
 
 
