@@ -1,4 +1,4 @@
-AirWatch WIFI
+AirWatch LoRa
 =============
 
 This project aims to build a cheap affordable air quality monitoring device. 
@@ -34,8 +34,7 @@ Solar Panel support
 
 
 
-
-WiFi AirWatch Hardware Bill of Materials
+AirWatch LoRa Hardware Bill of Materials
 ----------------------------------------
 
 Adafruit Feather M0 RFMx 
