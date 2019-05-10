@@ -1,0 +1,23 @@
+function Decoder(bytes, port) {
+
+  var temperature = ( (bytes[0] << 8) | (bytes[1]));
+  var pressure = ( (bytes[2] << 8) | (bytes[3]));
+  var humidity = ( (bytes[4] << 8) | (bytes[5]));
+  var pm25 = ( (bytes[6] << 8) | (bytes[7]));
+  var pm10 = ( (bytes[8] << 8) | (bytes[9]));
+  var pm100 = ( (bytes[10] << 8) | (bytes[11]));
+  
+  return {
+    temp: temperature/100.00,
+    pressure: pressure,
+    humidity: humidity/100.00,
+    pm25: pm25,
+    pm10: pm10,
+    pm100: pm100,
+  }; 
+  
+  
+  
+  
+
+}
