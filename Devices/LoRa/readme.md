@@ -78,3 +78,69 @@ PCB solder board
 
 Total price =   $58.74  USD
 
+
+
+
+
+
+Libraries:
+==================
+
+
+Adafruit BME280 Library
+https://github.com/adafruit/Adafruit_BME280_Library
+
+Adafruit Sleepy dog
+https://github.com/adafruit/Adafruit_SleepyDog
+
+Adafruit unified sensor
+https://github.com/adafruit/Adafruit_Sensor
+
+
+12C-Senor-lib
+https://github.com/orgua/iLib
+
+
+
+
+MCCI LoRaWAN LMIC Library
+https://github.com/mcci-catena/arduino-lmic
+
+
+PMS library
+https://github.com/fu-hsi/pms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
