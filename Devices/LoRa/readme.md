@@ -4,6 +4,7 @@ AirWatch WIFI
 This project aims to build a cheap affordable air quality monitoring device. 
 
 Version 1 (complete)
+--------------------
 
 It uses the Adafruit Feather M0 RFM9X dev board. 
 
