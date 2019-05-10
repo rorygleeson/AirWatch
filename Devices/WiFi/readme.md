@@ -7,10 +7,6 @@ BME280P sensor (Temp, Pressure, Humidity)
 PMS5003 Particle matter sensor, PM 1.0, 2.5 and 10.0
 
 
-
-WiFi Provisioning
-=================
-
 The AirWatch device needs to be supplied the credentials for the WIFI network it will use. 
 This code uses the ESP32 "SmartConfig" feature. 
 
