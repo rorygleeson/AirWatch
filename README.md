@@ -17,5 +17,15 @@ Version 1 of AirWatch supports 2 communication protocols. AirWatch WiFi uses you
 If you have access to the public TTN network (see here) then AirWatch LoRa version is suitable. 
 
 
+Hardware 
+========
 
+AirWatch WiFi
+--------------
 
+![alt text](https://github.com/rorygleeson/AirWatch/tree/master/Devices/LoRa)
+
+AirWatch LoRa
+--------------
+
+![alt text](https://github.com/rorygleeson/AirWatch/tree/master/Devices/WiFi)
