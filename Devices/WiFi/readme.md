@@ -15,4 +15,4 @@ The AirWatch device needs to be supplied the credentials for the WIFI network it
 This code uses the ESP32 "SmartConfig" feature. 
 
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WIFI/WiFi-Non-Solar.png)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/WiFi-Non-Solar.png)
