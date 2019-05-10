@@ -38,8 +38,7 @@ AirWatch LoRa Hardware Bill of Materials
 ----------------------------------------
 
 Adafruit Feather M0 RFMx 
-https://www.adafruit.com/product/3178
-average price: $34.95 USD
+https://www.adafruit.com/product/3178 average price: $34.95 USD
 
 
 BME280P
@@ -48,8 +47,7 @@ average price: US $2.17  USD
 
 
 PMS 5003
-https://www.aliexpress.com/af/PMS5003.html?SearchText=PMS5003
-average price: US $13.30 USD
+https://www.aliexpress.com/af/PMS5003.html?SearchText=PMS5003 average price: US $13.30 USD
 
 
 
@@ -57,16 +55,12 @@ average price: US $13.30 USD
 
 5V DC 1A POWER ADAPTER WITH MICRO USB PLUG
 
-https://www.auselectronicsdirect.com.au/5v-dc-1a-power-adapter-with-micro-usb-plug?gclid=EAIaIQobChMI6qyM-dmQ4gIVQo-PCh2wrABwEAQYBiABEgLqBvD_BwE
-
-average price: $7.95 AUD /  5.56 USD
+https://www.auselectronicsdirect.com.au/5v-dc-1a-power-adapter-with-micro-usb-plug?gclid=EAIaIQobChMI6qyM-dmQ4gIVQo-PCh2wrABwEAQYBiABEgLqBvD_BwE average price: $7.95 AUD /  5.56 USD
 
 
 Enclosure
 
-https://www.jaycar.com.au/jiffy-box-grey-130-x-68-x-44mm/p/HB6023
-
-average price: $3.95 AUD  / 2.76 USD
+https://www.jaycar.com.au/jiffy-box-grey-130-x-68-x-44mm/p/HB6023 average price: $3.95 AUD  / 2.76 USD
 
 
 1 X 3.3K Resistor
