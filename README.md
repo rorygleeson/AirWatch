@@ -8,7 +8,8 @@
 AirWatch
 ========
 
-The aim of the AirWatch project is to help deploy low cost networks of air-quality sensors that can deliver information on a street level. We hope to enhance existing government monitoring technologies. Governments and citizens can use this abundant data to inform their decisions about air-pollution management and improve their policies.
+The aim of the AirWatch project is to help deploy low cost networks of air-quality sensors that can deliver information on a street level. We hope to enhance existing government monitoring technologies. Governments and citizens can use our data to inform their decisions about air-pollution management and improve their policies.
+We allow you to control your data (make fully private) but hope you will share your outdoor data to help grow the AirWatch network. 
 
 
 Here you will find the details regarding the AirWatch sensors, so you can build your own and contribute to the AirWatch project. 
