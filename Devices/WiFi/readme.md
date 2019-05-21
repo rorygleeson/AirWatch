@@ -15,7 +15,7 @@ This code uses the ESP32 "SmartConfig" feature.
 Hardware
 =================
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/WIFI.png)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/WIFI v1.png)
 
 
 
