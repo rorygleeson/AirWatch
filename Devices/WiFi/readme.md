@@ -39,8 +39,9 @@ PMS 5003
 https://www.aliexpress.com/af/PMS5003.html?SearchText=PMS5003
 average price: US $13.30 USD
 
-
-
+MICS 6814 Gas Sensor Measures NO2, NH3, CO
+https://www.aliexpress.com/item/32731579562.html
+average price: US $23.73 USD
  
 
 5V DC 1A POWER ADAPTER WITH MICRO USB PLUG
@@ -64,4 +65,4 @@ average price: AUD $3.55 / $5.08 AUD
 Connector wires
 PCB solder board
 
-Total price =   $33.87  USD
+Total price =   $56  USD
