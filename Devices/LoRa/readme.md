@@ -30,6 +30,7 @@ Solar Panel support
 
 ![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/LORA1-Non-Solar.png)
 
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/LoRaSolarV2.png)
 
 
 
