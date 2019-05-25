@@ -15,7 +15,7 @@ We allow you to control your data (make fully private) but hope you will share y
 Here you will find the details regarding the AirWatch sensors, so you can build your own and contribute to the AirWatch project. 
 
 Version 1 of AirWatch supports 2 communication protocols. AirWatch WiFi uses your home WiFi network.
-If you have access to the public TTN network (see here) then AirWatch LoRa version is suitable. 
+If you have access to the public TTN network [See here](https://www.thethingsnetwork.org/map) then AirWatch LoRa version is suitable. 
 
 
 
