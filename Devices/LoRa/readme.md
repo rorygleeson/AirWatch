@@ -26,9 +26,16 @@ Version 2 (coming soon)
 MICS-6814 - C0, N02 and NH3 (Carbon Monoxide, Nitrogen Dioxide and Ammonia)
 Solar Panel support
 
-
+Non Solar Powered (power via mains)
+-------------------------------------
 
 ![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/LORA1-Non-Solar.png)
+
+
+
+ Solar Powered
+-------------------------------------
+
 
 ![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/LoRaSolarV2.png)
 
