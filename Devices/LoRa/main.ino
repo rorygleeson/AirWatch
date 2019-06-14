@@ -20,6 +20,7 @@
  * Note: LoRaWAN per sub-band duty-cycle limitation is enforced (1% in
  * g1, 0.1% in g2), but not the TTN fair usage policy (which is probably
  * violated by this sketch when left running for longer)!
+
  * To use this sketch, first register your application and device with
  * the things network, to set or generate an AppEUI, DevEUI and AppKey.
  * Multiple devices can use the same AppEUI, but each device has its own
@@ -50,6 +51,11 @@
 
 #include <Adafruit_BME280.h>
 Adafruit_BME280 bme280;
+#define VBATPIN A7
+
+#define NO2 A0
+#define NH3 A1
+#define CO A2
 
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
@@ -65,7 +71,7 @@ void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from the TTN console can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = {0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
+static const u1_t PROGMEM APPKEY[16] = { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
 
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
@@ -98,6 +104,24 @@ const int PM_10_INDEX = 12;
 int pm1;
 int pm25;
 int pm10;
+
+float my_no2;
+float my_nh3;
+float my_co;
+
+
+int int_no2;
+int int_nh3;
+int int_co;
+
+byte highbyteno2;
+byte lowbyteno2;
+
+byte highbytenh3;
+byte lowbytenh3;
+
+byte highbyteco;
+byte lowbyteco;
 
 
 float finalTemp;
@@ -157,9 +181,48 @@ void setup() {
     flash_led(10);
     delay(1000);
 
+
+
+
+// read battery level
+
+
+     Serial.println(F("Read the battery"));
+  float measuredvbat = analogRead(VBATPIN);
+  measuredvbat *= 2;    // we divided by 2, so multiply back
+  measuredvbat *= 3.3;  // Multiply by 3.3V, our reference voltage
+  measuredvbat /= 1024; // convert to voltage
+  Serial.print("VBat: " ); Serial.println(measuredvbat);
+ 
+ 
+ Serial.println(F("Read the Gases via ADC.. "));
+ 
+  my_no2 = analogRead(NO2);
+  Serial.print("NO2: " ); Serial.println(my_no2);
+
+
+  
+  my_nh3 = analogRead(NH3);
+  Serial.print("NH#: " ); Serial.println(my_nh3);
+
+
+  my_co = analogRead(CO);
+  Serial.print("CO: " ); Serial.println(my_co);
+
+
+
+
+
+
+
+        
+
     Serial1.begin(9600);          // for PMS sensor
     Serial1.setTimeout(1500);     // setup PMS sensor
     delay(1000);
+
+
+
 
 
     Serial.println(F("Serial 1 started ..now initilise the BME280 start"));
@@ -430,15 +493,30 @@ void do_send(osjob_t* j){
         lowbyte10 = lowByte(pm10);
        
 
+        Serial.println("Gases here are  : ");
+        Serial.println(my_no2);
+        Serial.println(my_nh3);
+        Serial.println(my_co);
+        
+        int_no2 =  my_no2 *1;
+        highbyteno2 = highByte(int_no2);
+        lowbyteno2 = lowByte(int_no2);
 
+        int_nh3 =  my_nh3 *1;
+        highbytenh3 = highByte(int_nh3);
+        lowbytenh3 = lowByte(int_nh3);
 
+        int_co =  my_co *1;
+        highbyteco = highByte(int_co);
+        lowbyteco = lowByte(int_co);
 
+   
 
-        uint8_t messagePacket[] ={highbytetemp,lowbytetemp,highbytepres,lowbytepres,highbytehum,lowbytehum,highbyte1,lowbyte1,highbyte25,lowbyte25,highbyte10,lowbyte10,};
+        uint8_t messagePacket[] ={highbytetemp,lowbytetemp,highbytepres,lowbytepres,highbytehum,lowbytehum,highbyte1,lowbyte1,highbyte25,lowbyte25,highbyte10,lowbyte10,highbyteno2,lowbyteno2,highbytenh3,lowbytenh3,highbyteco,lowbyteco,};
 
         Serial.println("ARRAY Is  ");
         int i;
-        for (i = 0; i < 12; i = i + 1) {
+        for (i = 0; i < 18; i = i + 1) {
         Serial.println(messagePacket[i]);
         }
         Serial.println("DONE ARRAY");
