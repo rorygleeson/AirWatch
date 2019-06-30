@@ -86,25 +86,22 @@ https://www.jaycar.com.au/jiffy-box-grey-130-x-68-x-44mm/p/HB6023 average price:
 Connector wires
 PCB solder board
 
-Total price Non Solar ~  $88  USD
+Approx Total price Non Solar ~  $88  USD
 
 
 
 Extra components required for solar:
 
-Pololu Step-up Voltage Ref
-https://www.pololu.com/product/2115    average price $5.70 AUD / $3.95 USD 
+Pololu 5V Step-Up Voltage Regulator  average price $5.70 AUD / $3.95 USD 
 
 
-Solar Lipo Charger (3.7V) 
-https://www.dfrobot.com/product-1139.html  average price $7 AUD / $4.90 USD 
+Solar Lipo Charger (3.7V) average price $7 AUD / $4.90 USD 
 
 
-2 Solar Panel (9v 220mA)
-https://www.dfrobot.com/product-1005.html   average price $11.25 AUD / $7.90 USD 
+2 Solar Panel (9v 220mA) average price $11.25 AUD / $7.90 USD 
 
 
-Total price Non Solar ~  $105  USD
+Approx Total price Solar ~  $105  USD
 
 
 Libraries:
