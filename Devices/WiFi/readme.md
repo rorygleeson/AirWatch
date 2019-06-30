@@ -25,38 +25,28 @@ AirWatch WiFi Hardware Bill of Materials
 ----------------------------------------
 
 WeMos D1 LOLIN32 ESP32 Wifi Bluetooth development board
-https://www.aliexpress.com/af/wemos-lolin32.html?SearchText=wemos+lolin32
 average price: $5 USD
 
-
-
-
 BME280P
-https://www.aliexpress.com/af/bme280-sensor.html?SearchText=bme280+sensor
-average price: US $2.17  USD
+average price: $2 USD
 
 
 PMS 5003
-https://www.aliexpress.com/af/PMS5003.html?SearchText=PMS5003
-average price: US $13.30 USD
+average price: $13 USD
 
 MICS 6814 Gas Sensor Measures NO2, NH3, CO
-https://www.aliexpress.com/item/32731579562.html
-average price: US $23.73 USD
+average price: $23 USD
  
 
 5V DC 1A POWER ADAPTER WITH MICRO USB PLUG
-https://www.auselectronicsdirect.com.au/5v-dc-1a-power-adapter-with-micro-usb-plug?gclid=EAIaIQobChMI6qyM-dmQ4gIVQo-PCh2wrABwEAQYBiABEgLqBvD_BwE
-average price: $7.95 AUD /  5.56 USD
+average price: $5 USD
 
 
 Enclosure
-https://www.jaycar.com.au/jiffy-box-grey-130-x-68-x-44mm/p/HB6023
-average price: $3.95 AUD  / 2.76 USD
+average price: $3 USD
 
 RGB LED
-https://www.robotgear.com.au/Product.aspx/Details/1031-LED-RGB-5mm-Common-Cathode-Diffused-and-Multicolour?gclid=EAIaIQobChMIm_uEjt-Q4gIVijgrCh0ZmQYgEAkYBiABEgK5n_D_BwE
-average price: AUD $3.55 / $5.08 AUD
+average price: $3 USD
 
 
 
@@ -66,4 +56,4 @@ average price: AUD $3.55 / $5.08 AUD
 Connector wires
 PCB solder board
 
-Total price =   $56  USD
+Total price =   $54  USD
