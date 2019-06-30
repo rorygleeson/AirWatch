@@ -24,29 +24,22 @@ Hardware
 AirWatch WiFi Hardware Bill of Materials
 ----------------------------------------
 
-WeMos D1 LOLIN32 ESP32 Wifi Bluetooth development board
-average price: $5 USD
+WeMos D1 LOLIN32 ESP32 Wifi Bluetooth development board ~ price: $5 USD
 
-BME280P
-average price: $2 USD
+BME280P ~ price: $2 USD
 
 
-PMS 5003
-average price: $13 USD
+PMS 5003 ~ price: $13 USD
 
-MICS 6814 Gas Sensor Measures NO2, NH3, CO
-average price: $23 USD
+MICS 6814 Gas Sensor Measures NO2, NH3, CO ~ price: $23 USD
  
 
-5V DC 1A POWER ADAPTER WITH MICRO USB PLUG
-average price: $5 USD
+5V DC 1A POWER ADAPTER WITH MICRO USB PLUG ~ price: $5 USD
 
 
-Enclosure
-average price: $3 USD
+Enclosure ~ price: $3 USD
 
-RGB LED
-average price: $3 USD
+RGB LED ~ price: $3 USD
 
 
 
@@ -56,4 +49,4 @@ average price: $3 USD
 Connector wires
 PCB solder board
 
-Total price =   $54  USD
+Total cost of hardware (approx)  =  ~ $54  USD
