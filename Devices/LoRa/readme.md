@@ -42,7 +42,7 @@ Non Solar Powered (power via mains)
 -------------------------------------
 
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/LoRaSolar.jpg)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/LoRa-Solar.jpg)
 
 
 
