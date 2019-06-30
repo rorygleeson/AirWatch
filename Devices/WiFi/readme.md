@@ -14,7 +14,7 @@ MICS 6814 gas sensor. NO2, NH3, CO
 
 
 The AirWatch device needs to be supplied the credentials for the WIFI network it will use. 
-This code uses the ESP32 "SmartConfig" feature. 
+This code uses the ESP32 "SmartConfig" feature. (more details of smartconfig here https://www.switchdoc.com/2018/06/tutorial-esp32-bc24-provisioning-for-wifi/ )
 
 Hardware
 =================
