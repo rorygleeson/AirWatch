@@ -34,7 +34,7 @@ Solar Panel support
 Non Solar Powered (power via mains)
 -------------------------------------
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/LORA-Non-Solar.jpg)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/LoRa/LORA-NonSolar.jpg)
 
 
 
