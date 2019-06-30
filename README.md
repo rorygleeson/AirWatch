@@ -24,7 +24,7 @@ What does the AirWatch device measure
 
 **Gases** CO, NH3, NO2
 
-**Other** Temperature, humidity, pressure
+**Other** Temperature, Humidity, Pressure
 
 
 
