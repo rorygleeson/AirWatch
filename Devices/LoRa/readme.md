@@ -52,32 +52,23 @@ Non Solar Powered (power via mains)
 AirWatch LoRa Hardware Bill of Materials
 ----------------------------------------
 
-Adafruit Feather M0 RFMx 
-https://www.adafruit.com/product/3178 average price: $34.95 USD
+Adafruit Feather M0 RFMx ~ price: $34 USD
 
 
-BME280P
-https://www.aliexpress.com/af/bme280-sensor.html?SearchText=bme280+sensor
-average price: US $2.17  USD
+BME280P ~ average price: $2 USD
 
 
-PMS 5003
-https://www.aliexpress.com/af/PMS5003.html?SearchText=PMS5003 average price: US $13.30 USD
+PMS 5003 ~ average price: $13 USD
 
 
-Mics-6814 Chip 
-average price: $30 USD on ebay
+Mics-6814 Chip ~ price: $30 USD
 
  
 
-5V DC 1A POWER ADAPTER WITH MICRO USB PLUG
-
-https://www.auselectronicsdirect.com.au/5v-dc-1a-power-adapter-with-micro-usb-plug?gclid=EAIaIQobChMI6qyM-dmQ4gIVQo-PCh2wrABwEAQYBiABEgLqBvD_BwE average price: $7.95 AUD /  5.56 USD
+5V DC 1A POWER ADAPTER WITH MICRO USB PLUG ~ price:  $5 USD
 
 
-Enclosure
-
-https://www.jaycar.com.au/jiffy-box-grey-130-x-68-x-44mm/p/HB6023 average price: $3.95 AUD  / 2.76 USD
+Enclosure price: ~ $3 USD
 
 
 
@@ -86,7 +77,7 @@ https://www.jaycar.com.au/jiffy-box-grey-130-x-68-x-44mm/p/HB6023 average price:
 Connector wires
 PCB solder board
 
-Approx Total price Non Solar ~  $88  USD
+Approx Total price Non Solar ~  $107  USD
 
 
 
