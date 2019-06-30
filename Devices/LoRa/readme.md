@@ -2,8 +2,9 @@ AirWatch LoRa
 =============
 
 This project aims to build a cheap affordable air quality monitoring device. 
+2 hardware version are provided, one for powering via 5v usb cable, the other for a solar powered version. 
 
-Version 1 (complete)
+Version 1 
 --------------------
 
 It uses the Adafruit Feather M0 RFM9X dev board. (ATSAMD21G18 ARM Cortex M0 processor and SX127x LoRa® based module)
@@ -26,10 +27,11 @@ The PMS5003 does have an enable pin (SET) which can be pulled low to turn the se
 
 To do: Yet to focus on sleep mode for bme280, the lora radio chip itself, the mics-6814 ..
 
-
 The MICS-6814 has a warm up period of 20 mins before readings are accurate. 
 
-Solar Panel support
+To do: Yet to focus on sleep mode for bme280, the lora radio chip itself, the mics-6814 ..
+
+
 
 Non Solar Powered (power via mains)
 -------------------------------------
@@ -63,6 +65,8 @@ PMS 5003
 https://www.aliexpress.com/af/PMS5003.html?SearchText=PMS5003 average price: US $13.30 USD
 
 
+Mics-6814 Chip 
+average price: $30 USD on ebay
 
  
 
@@ -76,13 +80,31 @@ Enclosure
 https://www.jaycar.com.au/jiffy-box-grey-130-x-68-x-44mm/p/HB6023 average price: $3.95 AUD  / 2.76 USD
 
 
+
+
 1 X 3.3K Resistor
 Connector wires
 PCB solder board
 
-Total price =   $58.74  USD
+Total price Non Solar ~  $88  USD
 
 
+
+Extra components required for solar:
+
+Pololu Step-up Voltage Ref
+https://www.pololu.com/product/2115    average price $5.70 AUD / $3.95 USD 
+
+
+Solar Lipo Charger (3.7V) 
+https://www.dfrobot.com/product-1139.html  average price $7 AUD / $4.90 USD 
+
+
+2 Solar Panel (9v 220mA)
+https://www.dfrobot.com/product-1005.html   average price $11.25 AUD / $7.90 USD 
+
+
+Total price Non Solar ~  $105  USD
 
 
 Libraries:
@@ -97,7 +119,6 @@ https://github.com/adafruit/Adafruit_SleepyDog
 
 MCCI LoRaWAN LMIC Library
 https://github.com/mcci-catena/arduino-lmic
-
 
 
 Adafruit unified sensor
