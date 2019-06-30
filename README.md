@@ -17,6 +17,13 @@ Here you will find the details regarding the AirWatch sensors, so you can build 
 Version 1 of AirWatch supports 2 communication protocols. AirWatch WiFi uses your home WiFi network.
 If you have access to the public TTN network [See here](https://www.thethingsnetwork.org/map) then AirWatch LoRa version is suitable. 
 
+What we measure
+================
+
+Particle Matter PM 1.0, PM 2.5, PM 10.0 
+Gases CO, NH3, NO2
+Other: Temperature, humidity, pressure
+
 
 
 Hardware 
