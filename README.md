@@ -20,11 +20,11 @@ If you have access to the public TTN network [See here](https://www.thethingsnet
 What does the AirWatch device measure
 ======================================
 
-Particle Matter PM 1.0, PM 2.5, PM 10.0 
+**Particle Matter** PM 1.0, PM 2.5, PM 10.0 
 
-Gases CO, NH3, NO2
+**Gases** CO, NH3, NO2
 
-Other: Temperature, humidity, pressure
+**Other** Temperature, humidity, pressure
 
 
 
