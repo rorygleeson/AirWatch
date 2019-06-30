@@ -61,7 +61,7 @@ BME280P ~ average price: $2 USD
 PMS 5003 ~ average price: $13 USD
 
 
-Mics-6814 Chip ~ price: $30 USD
+Mics-6814 Chip ~ price: $23 USD
 
  
 
@@ -77,19 +77,19 @@ Enclosure price: ~ $3 USD
 Connector wires
 PCB solder board
 
-Approx Total price Non Solar ~  $107  USD
+Approx Total price Non Solar ~  $80  USD
 
 
 
 Extra components required for solar:
 
-Pololu 5V Step-Up Voltage Regulator  average price $5.70 AUD / $3.95 USD 
+Pololu 5V Step-Up Voltage Regulator  ~ price $4 USD 
 
 
-Solar Lipo Charger (3.7V) average price $7 AUD / $4.90 USD 
+Solar Lipo Charger (3.7V) average price $5 USD 
 
 
-2 Solar Panel (9v 220mA) average price $11.25 AUD / $7.90 USD 
+2 Solar Panel (9v 220mA) average price $7 USD 
 
 
 Approx Total price Solar ~  $105  USD
