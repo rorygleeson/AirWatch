@@ -13,7 +13,14 @@
 #define ADC_SAMPLE_DELAY 100U
 
 
+boolean enableSleep = false;    // set to true to sleep between measurments. Less power consumption if powering from external battery. 
+                                // if sleep is set, then the RGB led will not be powered on when sleeping. 
+                                // if sleep it not set, then the RGB led will stay on indicating the air quality (green = very good/ good, blue = fair , red = poor, red flashing = very poor )
+
+
 Adafruit_BME280 bme280;
+
+char airWatchCode[16] = "W9GZkoANNAIap3p";      // AirWatch device key. Get this from your AirWatch account. If sending data to your own server, not required. 
 
 
 int attemptsCount = 0;                  // we track our attempts at connecting to wifi 
@@ -43,13 +50,10 @@ int PM10Value=0;          //define PM10 value of the air detector module
 
 
 
-// Create a hardware timer. We use this timer when the device goes into provisioning mode due to not being able to connect to the
-// WIFI network. 
-// The timer will ensure that after staying some time in provisioning mode (if the device cannot connect to a WIFI network 
-// it will always go into provisioing mode) it will restart and try again. 
+// Create a hardware timer. We use this timer when the device goes into provisioning mode due to not being able to connect to the WIFI network. 
+// The timer will ensure that after staying some time in provisioning mode (if the device cannot connect to a WIFI network it will always go into provisioing mode) it will restart and try again. 
 // This will support a scenario where the WIFI network is down, example router switched off, the device cannot connect so goes
-// into provisioning mode, but then the router is switched on and WIFI is restored. So now the device will restart and connect to 
-// the WIFI. 
+// into provisioning mode, but then the router is switched on and WIFI is restored. So now the device will restart and connect to the WIFI. 
 
 
 hw_timer_t * timer = NULL;  
@@ -65,53 +69,59 @@ void IRAM_ATTR onTimer()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 void setup() 
 {
-  // put your setup code here, to run once
+//  put your setup code here, to run once
   
     Serial.begin(9600);   //use serial 0 for debug print 
     Serial.setTimeout(1500); 
     Serial.println("Starting now");
+    
+//  the wake reason allows us to know what woke the esp32 up, power on, ext int or other reason
     wake  = wakeup_reason1();
-    Serial.println("WAKE IS..\n");                      /* The wake reason allows us to know what woke the esp32 up, power on, ext int or other reason */
-    Serial.println(wake);
- 
-    // initialize the pins used for the RGB led
+    Serial.println("Wakeup reason is: ");                      
+    Serial.println(wake); 
+    
+//  initialize the pins used for the RGB led
     pinMode(red, OUTPUT);
     pinMode(green, OUTPUT);
     pinMode(blue, OUTPUT);
 
-
-    // initialize the pin used to control PMS5003 
+//  initialize the pin used to control PMS5003 
     pinMode(pmsSetPin, OUTPUT);
 
 
 
-    // Turn off RGB led
+//  Turn off RGB led
     digitalWrite(red, HIGH);
     digitalWrite(green, HIGH);
     digitalWrite(blue, HIGH);
-
-    // Red LED on
-    digitalWrite(red, LOW); 
+    delay(2000);
     
   
     int counter = 0;
-    
-    Serial.println("In setup. Variable interruptReceoved is..\n"); 
-    Serial.println(interruptReceived);
-
-
+    int counter2 = 0;
     
     WiFi.mode(WIFI_STA);
     WiFi.begin();
 
     while (WiFi.status() != WL_CONNECTED) 
+    
     {
         delay(2000);
         Serial.print(".");
         counter += 1;
-        Serial.println(counter); 
         
               if(counter == 10)
               {
@@ -129,156 +139,55 @@ void setup()
 
     if((WiFi.status() == WL_CONNECTED) )
     {
-      // Red LED off
-      digitalWrite(red, HIGH);
       
-
-      // Green LED on
-      digitalWrite(green, LOW); 
-
-      
-      Serial.println("WiFi Connected.");
-      Serial.print("IP Address: ");
-      Serial.println(WiFi.localIP());
-
-      Serial.println(F("Start the BME280 ...."));
-      bme280.begin();
-      Serial.println("Read BME280 values...");
-      float temperature = bme280.readTemperature();
-      float pressure = bme280.readPressure() / 100.0F;
-      float humidity = bme280.readHumidity();
-      Serial.println("Temp is : ");
-      Serial.println(temperature);
-      Serial.println("Pressure is : ");
-      Serial.println(pressure);        
-      Serial.println("Humidity is : ");
-      Serial.println(humidity);
+        flash_led(green,3);     // Indicates successfully connected to WIFI
     
 
-
-      Serial.println("Set PMS SET Pin HIGH and wait 20 seconds ......");
-      digitalWrite(pmsSetPin, HIGH);
-      delay(20000);
-
-
-
-      //start to read the PMS5003 when detect 0x42 on serial 
       
-      if(Serial.find(0x42))
-      {    
-        Serial.readBytes(buf,LENG);
-
-        if(buf[0] == 0x4d){
-          if(checkValue(buf,LENG)){
-            PM01Value=transmitPM01(buf); //count PM1.0 value of the air detector module
-            PM2_5Value=transmitPM2_5(buf);//count PM2.5 value of the air detector module
-            PM10Value=transmitPM10(buf); //count PM10 value of the air detector module 
-          }           
-        } 
-      }
+        Serial.println("WiFi Connected.");
+        Serial.print("IP Address: ");
+        Serial.println(WiFi.localIP());
 
 
-      Serial.print("PM1.0: ");  
-      Serial.print(PM01Value);
-      Serial.println("  ug/m3");            
-      Serial.print("PM2.5: ");  
-      Serial.print(PM2_5Value);
-      Serial.println("  ug/m3");     
-      Serial.print("PM1 0: ");  
-      Serial.print(PM10Value);
-      Serial.println("  ug/m3");   
-      Serial.println();
-        
+        readSensorsAndSendEvent();
+
       
-     // now read the gas sensor
-     
-     Serial.println("Setup gas sensor MICS6814");
-     if ( !mics6814_init() ) 
-     {
-          Serial.println("Waiting to Setup gas sensor MICS6814");
-          while(1);
-     }
+        Serial.println("Set PMS SET Pin LOW to turn off fan, it only has 8000 hours of operation life span ......");
+        digitalWrite(pmsSetPin, LOW);
+        delay(5000);
 
-     uint16_t no2 = 0U;
-     uint16_t nh3 = 0U;
-     uint16_t co = 0U;
-     mics6814_read(&no2, &nh3, &co);
-
-
-     String clientMac = "";
-     unsigned char mac[6];
-     WiFi.macAddress(mac);
-     clientMac += macToStr(mac);
-     Serial.println("Mac ID is ..");
-     Serial.println(clientMac);
-
-
-     Serial.println("Send event to platform.. ");
-     HTTPClient http;
-     USE_SERIAL.print("[HTTP] begin...\n");
-
-     // url format http://aServer.com/aScript.php?pms01=23&pms25=32&pm10=12&thingName=wemos04&serial=a238b327f8f334ed&temeperature=23.4&pressure=1036&humidity=45.2&no2=234&nh3=286&co=23
-     
-     String url = "http://airwatch.io/update.php?pms01=";       // point to airwatch. Or update to point to your own server 
-
-     url += PM01Value;url += "&pms25=";url += PM2_5Value;url += "&pms10=";
-     url += PM10Value;url += "&thingName=wemos01";url += "&serial=";url += clientMac;
-     url += "&temperature=";url += temperature;url += "&pressure=";url += pressure;
-     url += "&humidity=";url += humidity;url += "&no2=";url += no2;url += "&nh3=";
-     url += nh3;url += "&co=";url += co;
-
- 
-     USE_SERIAL.print("URL is ...\n");
-     USE_SERIAL.print(url);
-     http.begin(url); //HTTP
-
-
-     USE_SERIAL.print("[HTTP] GET...\n");
-     
-     // start connection and send HTTP header
-     int httpCode = http.GET();
-
-
-      if(httpCode > 0) 
-      {
-                  // HTTP header has been send and Server response header has been handled
-                  USE_SERIAL.printf("[HTTP] GET... code: %d\n", httpCode);
-
-                  // file found at server
-                  if(httpCode == HTTP_CODE_OK) 
-                  {
-                      String payload = http.getString();
-                      USE_SERIAL.println("HTTO OK: http return code is");
-                      USE_SERIAL.println(payload);
-                  }
-      } 
-      else // connected to wifi but http get failed
-      {
-                USE_SERIAL.printf("[HTTP] GET... failed, error code: %s\n", http.errorToString(httpCode).c_str());
-                USE_SERIAL.print("WIFI  connected, but update  failed.");
-                http.end();
-                
-       }
-
-
-      http.end();
-
-      Serial.println("Put the PMS5003 to sleep");
-
-
-      Serial.println("Set PMS SET Pin LOW and wait 1 second ......");
-      digitalWrite(pmsSetPin, LOW);
-      delay(1000);
-      Serial.println("Now go to sleep");
-      esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);esp_deep_sleep_start();
+        if(enableSleep == true)
+        {
+        Serial.println("Now go to sleep for 5 mins");
+        esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
+        esp_deep_sleep_start();
+        }
+        else
+        {
+          // keep RGB indicator led on, so dont sleep, just wait 5 mins then restart
+        delay(300000); 
+        esp_restart();  
+        }
 
 
 
-    }
-    else
+    }                 
+    else            // The device has not been able to connect to a WIFI network and get an IP address. It could be the first time on this WIFI. Go into provisioning mode. 
     {
-          
-              Serial.println("Unable to connect to a WIFI..");
+              
+              flash_led(red,3);     // flash 3 reds to indicate unable to connect to WIFI. This is normal if its the first time trying to connect since it doesnt know WIFI login credentials.
+              delay(2000);  
+              Serial.println("Unable to connect to any WIFI..");
+
+              // Blue LED on to indicate provosioning mode
+              digitalWrite(blue, LOW); 
+
+              // Set up a 5 minute timer. Once 5 minutes in Provisioning mode has expired, reset the device.  
+              // This is to support the scenario where the router for example is switched off or there is a problem with ISP / Internet at home. 
+              // Then when te device resets after 5 minutes sleep, it cannot connect to the WIFI. 
+              // So it enters provisioning mode. But then the router is switched on and WIFI becomes available. Without this timer we would just stay in Provisioing mode forever. 
+              // With the timee the device will exit provisoining mode and re attempt to connect every 5 minutes. So when router turned back on, AirWatch device will connect. 
+              
               /* Set up 5 minute timer. Use 1st timer of 4 */
               /* 1 tick take 1/(80MHZ/80) = 1us so we set divider 80 and count up */
               timer = timerBegin(0, 80, true);
@@ -293,11 +202,8 @@ void setup()
               Serial.println("Started timer");
               Serial.println("We have setup an interrupt to happen in 5 minutes. In the meantime go into smartconfig mode..");
               Serial.println("Start SmartConfig.");
-
-
-
-              digitalWrite(red, HIGH); // Red LED off
-              digitalWrite(blue, LOW); // Blue LED on to indicate provosioning mode
+              
+              
 
 
 
@@ -309,33 +215,47 @@ void setup()
               {                                                             
                   delay(500);
                   Serial.print(".");
-                  if(interruptReceived == true)
+                  if(interruptReceived == true)                             // we have been 5 minutes in Prov mode, reset and attempt to connect to WIFI
                   {
                     Serial.print("Back to while loop after interrupt occured, exit loop");
                     break;
                   }
                   else
                   {
-                    Serial.print("*");
+                    Serial.print("*");      // waiting 
                   }
                   
               }
 
-              // we have exited the above while loop by a smart config done, I.E user supplied wifi details 
+              // we have exited the above while loop by a smart config done, I.E user supplied wifi details via the mobile app
                   
                   if(WiFi.smartConfigDone())
                   {
                     Serial.println("");
                     Serial.println("SmartConfig done.");
-                    flash_led(green,3);
+
+                    // Blue LED off to indicate provosioning mode complete
+                    digitalWrite(blue, HIGH); 
+
+                    
                     delay(2000);
 
                    
                     /* Wait for WiFi to connect to AP */
                     Serial.println("Waiting for WiFi");
-                    while (WiFi.status() != WL_CONNECTED) {
-                    delay(500);
+                    while (WiFi.status() != WL_CONNECTED) 
+                    {
+                    
+                    delay(2000);
                     Serial.print("!");
+                    counter2 += 1;
+                    
+                        if(counter2 == 10)
+                        {
+                          Serial.println("Counter2 is 10, failed to connect to a WIFI network after smart config done.. restart "); 
+                          flash_led(red,5);
+                          esp_restart(); 
+                        }
                     }
 
                     
@@ -349,8 +269,8 @@ void setup()
                   }
                   else
                   {
-                    Serial.println("SmartConfig NOT done, here due to interrupt. Restart. ");
-                    flash_led(red,3);
+                    Serial.println("SmartConfig NOT done, here due to interrupt. Restart. WIFI may have been down and is back now.");
+                    
                   }
               
               
@@ -579,3 +499,183 @@ bool mics6814_read(uint16_t* no2, uint16_t* nh3, uint16_t* co) {
  
   return result;
 }
+
+
+
+
+
+
+
+
+void readSensorsAndSendEvent()
+{
+
+
+
+
+      Serial.println(F("Start the BME280 ...."));
+      bme280.begin();
+      Serial.println("Read BME280 values...");
+      float temperature = bme280.readTemperature();
+      float pressure = bme280.readPressure() / 100.0F;
+      float humidity = bme280.readHumidity();
+      Serial.println("Temp is : ");
+      Serial.println(temperature);
+      Serial.println("Pressure is : ");
+      Serial.println(pressure);        
+      Serial.println("Humidity is : ");
+      Serial.println(humidity);
+    
+
+
+      Serial.println("Set PMS SET Pin HIGH and wait 20 seconds ......");
+      digitalWrite(pmsSetPin, HIGH);
+      delay(20000);
+
+
+
+      //start to read the PMS5003 when detect 0x42 on serial 
+      
+      if(Serial.find(0x42))
+      {    
+        Serial.readBytes(buf,LENG);
+
+        if(buf[0] == 0x4d){
+          if(checkValue(buf,LENG)){
+            PM01Value=transmitPM01(buf); //count PM1.0 value of the air detector module
+            PM2_5Value=transmitPM2_5(buf);//count PM2.5 value of the air detector module
+            PM10Value=transmitPM10(buf); //count PM10 value of the air detector module 
+          }           
+        } 
+      }
+
+
+      Serial.print("PM1.0: ");  
+      Serial.print(PM01Value);
+      Serial.println("  ug/m3");            
+      Serial.print("PM2.5: ");  
+      Serial.print(PM2_5Value);
+      Serial.println("  ug/m3");     
+      Serial.print("PM1 0: ");  
+      Serial.print(PM10Value);
+      Serial.println("  ug/m3");   
+      Serial.println();
+        
+      
+     // now read the gas sensor
+     
+     Serial.println("Setup gas sensor MICS6814");
+     if ( !mics6814_init() ) 
+     {
+          Serial.println("Waiting to Setup gas sensor MICS6814");
+          while(1);
+     }
+
+     uint16_t no2 = 0U;
+     uint16_t nh3 = 0U;
+     uint16_t co = 0U;
+     mics6814_read(&no2, &nh3, &co);
+
+
+     String clientMac = "";
+     unsigned char mac[6];
+     WiFi.macAddress(mac);
+     clientMac += macToStr(mac);
+     Serial.println("Mac ID is ..");
+     Serial.println(clientMac);
+
+
+     Serial.println("Send event to platform.. ");
+     HTTPClient http;
+     USE_SERIAL.print("[HTTP] begin...\n");
+
+     // url format http://aServer.com/aScript.php?pms01=23&pms25=32&pm10=12&thingName=wemos04&serial=a238b327f8f334ed&temeperature=23.4&pressure=1036&humidity=45.2&no2=234&nh3=286&co=23
+     
+     String url = "http://server.com/aScript.php?pms01=";         // point to airwatch. Or update to point to your own server 
+
+     url += PM01Value;
+     url += "&pms25=";
+     url += PM2_5Value;
+     url += "&pms10=";
+     url += PM10Value;
+     url += "&thingName=wemos01";
+     url += "&serial=";
+     url += clientMac;
+     url += "&temperature=";
+     url += temperature;
+     url += "&pressure=";
+     url += pressure;
+     url += "&humidity=";
+     url += humidity;
+     url += "&no2=";
+     url += no2;
+     url += "&nh3=";
+     url += nh3;
+     url += "&co=";
+     url += co;
+     url += "&key=";
+     url +=  airWatchCode;
+
+ 
+     USE_SERIAL.print("URL is ...\n");
+     USE_SERIAL.print(url);
+     http.begin(url); //HTTP
+
+
+     USE_SERIAL.print("[HTTP] GET...\n");
+     
+     // start connection and send HTTP header
+     int httpCode = http.GET();
+
+
+      if(httpCode > 0) 
+      {
+                  // HTTP header has been send and Server response header has been handled
+                  USE_SERIAL.printf("[HTTP] GET... code: %d\n", httpCode);
+
+                  // file found at server
+                  if(httpCode == HTTP_CODE_OK) 
+                  {
+                      String payload = http.getString();
+                      USE_SERIAL.println("HTTO OK: http return code is");
+                      USE_SERIAL.println(payload);
+                      http.end();
+                      flash_led(green,5);  // indicates the send was successfull
+                  }
+      } 
+      else // connected to wifi but http get failed
+      {
+                USE_SERIAL.printf("[HTTP] GET... failed, error code: %s\n", http.errorToString(httpCode).c_str());
+                USE_SERIAL.print("WIFI  connected, but update  failed.");
+                http.end();
+                flash_led(red,5);  // indicates the send failed
+                
+       }
+
+  // set the led based on last reading of air quality. 
+
+    if(PM2_5Value >= 0 &&  PM2_5Value <= 26.3)
+    {
+        // set RGB green, very good or good quality
+        digitalWrite(green, LOW); 
+    }
+    else if(PM2_5Value >= 26.4 &&  PM2_5Value <= 39.9)
+    {
+        // set RGB blue , fair quality
+        digitalWrite(blue, LOW); 
+    }
+    else if(PM2_5Value >= 40.0 )
+    {
+        // set RGB red, poor quality or very poor quality
+        digitalWrite(red, LOW); 
+    }
+      
+  
+}
+
+
+
+
+
+
+
