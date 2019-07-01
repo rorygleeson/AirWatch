@@ -43,10 +43,13 @@ int PM10Value=0;          //define PM10 value of the air detector module
 
 
 
-// Create a hardware timer. We use this timer when the device goes into provisioning mode due to not being able to connect to the WIFI network. 
-// The timer will ensure that after staying some time in provisioning mode (if the device cannot connect to a WIFI network it will always go into provisioing mode) it will restart and try again. 
+// Create a hardware timer. We use this timer when the device goes into provisioning mode due to not being able to connect to the
+// WIFI network. 
+// The timer will ensure that after staying some time in provisioning mode (if the device cannot connect to a WIFI network 
+// it will always go into provisioing mode) it will restart and try again. 
 // This will support a scenario where the WIFI network is down, example router switched off, the device cannot connect so goes
-// into provisioning mode, but then the router is switched on and WIFI is restored. So now the device will restart and connect to the WIFI. 
+// into provisioning mode, but then the router is switched on and WIFI is restored. So now the device will restart and connect to 
+// the WIFI. 
 
 
 hw_timer_t * timer = NULL;  
