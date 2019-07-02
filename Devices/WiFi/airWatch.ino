@@ -20,7 +20,7 @@ boolean enableSleep = false;    // set to true to sleep between measurments. Les
 
 Adafruit_BME280 bme280;
 
-char airWatchCode[16] = "W9GZkoANNAIap3p";      // AirWatch device key. Get this from your AirWatch account. If sending data to your own server, not required. 
+char airWatchCode[16] = "xxxxxxxxxxxxxxx";      // AirWatch device key. Get this from your AirWatch account. If sending data to your own server, not required. 
 
 
 int attemptsCount = 0;                  // we track our attempts at connecting to wifi 
@@ -28,9 +28,10 @@ int wake;                               // we store the wakeup reason, which is 
 boolean interruptReceived = false;      // set to true if we received an interrupt
 bool smartconfigDone = false;           // set to true when the smartconfig process has been completed
 
-int red = 0;
+
+int red = 15;
 int green = 2;
-int blue = 15;
+int blue = 0;
  
 
 int pmsSetPin = 4;                     // must set this pin low to put the pms5003 to sleep, driven by pin 4 / GPIO4 on wemos
@@ -71,15 +72,6 @@ void IRAM_ATTR onTimer()
 
 
 
-
-
-
-
-
-
-
-
-
 void setup() 
 {
 //  put your setup code here, to run once
@@ -100,15 +92,20 @@ void setup()
 
 //  initialize the pin used to control PMS5003 
     pinMode(pmsSetPin, OUTPUT);
-
-
+    delay(2000); // should here fan for 2 seconds before we turn it off
+    Serial.println("Set PMS SET Pin LOW to turn off as its using serial output......");
+    digitalWrite(pmsSetPin, LOW);
 
 //  Turn off RGB led
     digitalWrite(red, HIGH);
     digitalWrite(green, HIGH);
     digitalWrite(blue, HIGH);
     delay(2000);
-    
+
+
+
+
+
   
     int counter = 0;
     int counter2 = 0;
@@ -139,22 +136,20 @@ void setup()
 
     if((WiFi.status() == WL_CONNECTED) )
     {
-      
-        flash_led(green,3);     // Indicates successfully connected to WIFI
-    
-
-      
         Serial.println("WiFi Connected.");
         Serial.print("IP Address: ");
         Serial.println(WiFi.localIP());
-
-
-        readSensorsAndSendEvent();
+        flash_led(green,3);     // Indicates successfully connected to WIFI
+        delay(2000);
 
       
-        Serial.println("Set PMS SET Pin LOW to turn off fan, it only has 8000 hours of operation life span ......");
-        digitalWrite(pmsSetPin, LOW);
-        delay(5000);
+        
+
+
+        readSensorsAndSendEvent();    // Read the values and send over HTTP to AirWatch or any other server
+
+      
+        
 
         if(enableSleep == true)
         {
@@ -330,16 +325,18 @@ digitalWrite(red, HIGH);
 digitalWrite(green, HIGH);
 digitalWrite(blue, HIGH);
 
-  for (int i = 0; i <= numFlashes; i++) 
+  for (int i = 0; i < numFlashes; i++) 
   {
 
     digitalWrite(color, LOW);     // turn on
-    delay(1000); 
+    delay(300); 
     digitalWrite(color, HIGH);     // turn off
-    delay(1000); 
+    delay(300); 
   }
 
-  
+
+
+delay(2000);  
 }
 
 
@@ -591,7 +588,7 @@ void readSensorsAndSendEvent()
 
      // url format http://aServer.com/aScript.php?pms01=23&pms25=32&pm10=12&thingName=wemos04&serial=a238b327f8f334ed&temeperature=23.4&pressure=1036&humidity=45.2&no2=234&nh3=286&co=23
      
-     String url = "http://server.com/aScript.php?pms01=";         // point to airwatch. Or update to point to your own server 
+     String url = "http://airwatch.io/update/updateWIFI.php?pms01=";         // point to airwatch. Or update to point to your own server 
 
      url += PM01Value;
      url += "&pms25=";
@@ -665,17 +662,18 @@ void readSensorsAndSendEvent()
         digitalWrite(blue, LOW); 
     }
     else if(PM2_5Value >= 40.0 )
-    {
+    { 
+       
         // set RGB red, poor quality or very poor quality
         digitalWrite(red, LOW); 
     }
-      
+    
+
+        Serial.println("Set PMS SET Pin LOW to turn off fan, it only has 8000 hours of operation life span ......");
+        digitalWrite(pmsSetPin, LOW);
+        delay(2000);
+
+
+    
   
 }
-
-
-
-
-
-
-
