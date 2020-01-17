@@ -29,9 +29,16 @@ boolean interruptReceived = false;      // set to true if we received an interru
 bool smartconfigDone = false;           // set to true when the smartconfig process has been completed
 
 
-int red = 15;
+
+
+int red = 0;
 int green = 2;
-int blue = 0;
+int blue = 15;
+ 
+ 
+ 
+ 
+
  
 
 int pmsSetPin = 4;                     // must set this pin low to put the pms5003 to sleep, driven by pin 4 / GPIO4 on wemos
