@@ -12,6 +12,7 @@ PMS5003 Particle matter sensor, PM 1.0, 2.5 and 10.0
 
 MICS 6814 gas sensor. NO2, NH3, CO
 
+Power via 5v micro usb 
 
 The AirWatch device needs to be supplied the credentials for the WIFI network it will use. 
 This code uses the ESP32 "SmartConfig" feature. (more details of smartconfig here https://www.switchdoc.com/2018/06/tutorial-esp32-bc24-provisioning-for-wifi/ )
