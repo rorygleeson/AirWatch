@@ -110,7 +110,7 @@ void setup()
     delay(2000);
 
 
-
+    flash_led(blue,3);
 
 
   
@@ -181,8 +181,7 @@ void setup()
               delay(2000);  
               Serial.println("Unable to connect to any WIFI..");
 
-              // Blue LED on to indicate provosioning mode
-              digitalWrite(blue, LOW); 
+             
 
               // Set up a 5 minute timer. Once 5 minutes in Provisioning mode has expired, reset the device.  
               // This is to support the scenario where the router for example is switched off or there is a problem with ISP / Internet at home. 
@@ -207,13 +206,13 @@ void setup()
               
               
 
-
+            
 
               
               WiFi.beginSmartConfig();
               /* Wait for SmartConfig packet from mobile */
               Serial.println("Waiting for SmartConfig.");
-              while (!WiFi.smartConfigDone())                               // wait in this loop until smartconfig is complete, OR the interrupt previosuly set for 5 minutes occured
+              while (!WiFi.smartConfigDone())                               // wait in this loop until smartconfig is complete (i.e user provides wifi details via app, OR the interrupt previosuly set for 5 minutes occured
               {                                                             
                   delay(500);
                   Serial.print(".");
@@ -225,6 +224,18 @@ void setup()
                   else
                   {
                     Serial.print("*");      // waiting 
+
+                  // Toggle LED between blue and red to indicate provosioning mode
+                  digitalWrite(blue, LOW); 
+                  delay(500);
+                  digitalWrite(blue, HIGH); 
+                  digitalWrite(red, LOW); 
+                  delay(500);
+                  digitalWrite(red, HIGH); 
+
+
+                  
+              
                   }
                   
               }
@@ -236,9 +247,9 @@ void setup()
                     Serial.println("");
                     Serial.println("SmartConfig done.");
 
-                    // Blue LED off to indicate provosioning mode complete
+                    // RED/Blue LED off to indicate provosioning mode complete
                     digitalWrite(blue, HIGH); 
-
+                    digitalWrite(red, HIGH);
                     
                     delay(2000);
 
@@ -255,7 +266,7 @@ void setup()
                         if(counter2 == 10)
                         {
                           Serial.println("Counter2 is 10, failed to connect to a WIFI network after smart config done.. restart "); 
-                          flash_led(red,5);
+                          flash_led(red,10);
                           esp_restart(); 
                         }
                     }
@@ -264,7 +275,7 @@ void setup()
                     Serial.println("WiFi Connected.");
                     Serial.print("IP Address: ");
                     Serial.println(WiFi.localIP());
-                    flash_led(green,5);
+                    flash_led(green,10);
                     Serial.print("RESTART ...................should then find wifi and go through normal program execution");
                     esp_restart(); 
                     
@@ -602,7 +613,7 @@ void readSensorsAndSendEvent()
      url += PM2_5Value;
      url += "&pms10=";
      url += PM10Value;
-     url += "&thingName=wemos01";
+     url += "&thingName=xxxxxxxxxxxxx";
      url += "&serial=";
      url += clientMac;
      url += "&temperature=";
