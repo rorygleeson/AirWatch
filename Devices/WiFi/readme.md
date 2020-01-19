@@ -63,7 +63,7 @@ Total cost of hardware (approx)  =  ~ $54  USD
 WiFi Setup
 ==========
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/AirWatch Setup Instructions.png)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/AirWatchSetup.png)
 
 
 
@@ -81,7 +81,7 @@ AirWatch Operation Cycle
 ========================
 
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/AirWatch Operation.png)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/AirWatchOperation.png)
 
 
 
@@ -94,7 +94,7 @@ LED status
 ==========
 
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/AirWatch LED status.png)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/AirWatchLED.png)
 
 
 
