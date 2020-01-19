@@ -56,3 +56,41 @@ Connector wires
 PCB solder board
 
 Total cost of hardware (approx)  =  ~ $54  USD
+
+
+
+
+WiFi Setup
+==========
+
+
+
+
+
+
+
+
+
+
+
+
+
+AirWatch Operation Cycle
+========================
+
+
+
+
+
+
+
+
+
+LED status 
+==========
+
+
+
+
+
+
