@@ -89,7 +89,7 @@ WiFi Setup
 
 8 The EspTouch SmartConfig app will show a success message if completed successfully. Device will restart. 
 
-*9 The AirWatch device will flash the green LED 10 times to indicate the WiFi setup was successful. It will then restart. 
+9 The AirWatch device will flash the green LED 10 times to indicate the WiFi setup was successful. It will then restart. 
 
 OR
 
