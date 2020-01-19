@@ -63,9 +63,9 @@ Total cost of hardware (approx)  =  ~ $54  USD
 WiFi Setup
 ==========
 
-*1 Ensure your mobile phone is connected to the same WiFi network that the AirWatch device will use.
+1 Ensure your mobile phone is connected to the same WiFi network that the AirWatch device will use.
 
-*2 Download the app from Android play store. 	
+2 Download the app from Android play store. 	
 
   App name: EspTouch: SmartConfig for ESP8622, ESP32
   
@@ -76,26 +76,26 @@ WiFi Setup
 
 
 
-*3 Plug in the AirWatch device. The blue LED will flash 3 times. 
+3 Plug in the AirWatch device. The blue LED will flash 3 times. 
 
-**4 Wait 20 seconds, the Red LED will flash 3 times (indicating it cannot connect to any WiFi networks). This is normal for first time operation on a new WiFi network. 
+4 Wait 20 seconds, the Red LED will flash 3 times (indicating it cannot connect to any WiFi networks). This is normal for first time operation on a new WiFi network. 
 
 
-*5 Wait until LED starts to toggle between blue and red. The AirWatch device is now in “WiFi Setup Mode”.
+5 Wait until LED starts to toggle between blue and red. The AirWatch device is now in “WiFi Setup Mode”.
 
-*6 Open the ESPTouch SmartConfig app on your mobile device, enter the WiFi SSID and Password. 
+6 Open the ESPTouch SmartConfig app on your mobile device, enter the WiFi SSID and Password. 
 
-*7 Hit “Confirm”to send the details to the device. 
+7 Hit “Confirm”to send the details to the device. 
 
-*8 The EspTouch SmartConfig app will show a success message if completed successfully. Device will restart. 
+8 The EspTouch SmartConfig app will show a success message if completed successfully. Device will restart. 
 
 *9 The AirWatch device will flash the green LED 10 times to indicate the WiFi setup was successful. It will then restart. 
 
 OR
 
-*9 The AirWatch device will flash red 10 times if after providing the WiFi details, AirWatch device was still unable to connect to the network. Device will restart.
+9 The AirWatch device will flash red 10 times if after providing the WiFi details, AirWatch device was still unable to connect to the network. Device will restart.
 
-*10 Login to airwatch app to view your data. 
+10 Login to airwatch app to view your data. 
 
 
 
