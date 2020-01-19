@@ -71,7 +71,7 @@ WiFi Setup
   
 
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/esptouchapp.png)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/esptouchapp.PNG)
 
 
 
