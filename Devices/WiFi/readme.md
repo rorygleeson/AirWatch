@@ -100,42 +100,6 @@ OR
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/AirWatchSetup.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
 AirWatch Operation Cycle
 ========================
 
