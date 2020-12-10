@@ -27,46 +27,12 @@ Hardware
 
 ![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/1.jpg)
 
-AirWatch WiFi Hardware Bill of Materials
-----------------------------------------
-
-WeMos D1 LOLIN32 ESP32 Wifi Bluetooth development board ~ price: $5 USD
-
-BME280P ~ price: $2 USD
-
-
-PMS 5003 ~ price: $13 USD
-
-MICS 6814 Gas Sensor Measures NO2, NH3, CO ~ price: $23 USD
- 
-
-5V DC 1A POWER ADAPTER WITH MICRO USB PLUG ~ price: $5 USD
-
-
-Enclosure ~ price: $3 USD
-
-RGB LED ~ price: $3 USD
-
-
-
-1 X 3.3K Resistor
-3 X  10K Resistor
-
-Connector wires
-PCB solder board
-
-Total cost of hardware (approx)  =  ~ $54  USD
-
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/1.jpg)
-
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/2.jpg)
-
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/3.jpg)
-
 ![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/4.jpg)
 
 
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/7.jpg)
 
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/8.jpg)
 
 WiFi Setup
 ==========
