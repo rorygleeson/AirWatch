@@ -25,7 +25,7 @@ Hardware
 ![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/WIFI.png)
 
 
-
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/1.jpg)
 
 AirWatch WiFi Hardware Bill of Materials
 ----------------------------------------
