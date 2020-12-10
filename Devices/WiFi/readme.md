@@ -57,6 +57,14 @@ PCB solder board
 
 Total cost of hardware (approx)  =  ~ $54  USD
 
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/1.jpg)
+
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/2.jpg)
+
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/3.jpg)
+
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/4.jpg)
+
 
 
 
