@@ -2,7 +2,8 @@
 // This version of airwatch for the ESP32 uses WiFiManager 
 // WiFiManager works as follows:
 // 1  When the ESP starts up, it puts it in Station mode and tries to connect to an access point (to the local WiFi network) previously registered
-// 2  If the ESP32 fails to connect or if no network has been registered previously, it places the ESP32 in Access Point mode (AP Mode). A web server accessible to the IP address 192.168.4.1 is started on the ESP32
+// 2  If the ESP32 fails to connect or if no network has been registered previously, it places the ESP32 in Access Point mode (AP Mode). 
+//    A web server accessible to the IP address 192.168.4.1 is started on the ESP32
 // 3  Use any device with a WiFi connection with a browser (computer, smartphone, tablet) to connect to the configuration page
 
 
