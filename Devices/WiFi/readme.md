@@ -38,9 +38,9 @@ WiFi Setup
 
 1 Plug in the AirWatch device. The blue LED will flash 3 times to indicate start of cycle.  
 
-2 If you have already provided the WiFi details to the device, and it can connect to the WiFi, the green led will flash 3 times. 
+2 If you have already provided the WiFi details to the device, and it can connect to the WiFi, the green led will flash 3 times. Device willl try for 20 seconds to connect to WiFi. 
 
-3 If this is the first time setting the device up on the WiFi network the device will go into “WiFi Setup Mode”. The LED toggles between blue and red. 
+3 If the device fails to connect to your WiFi, for example If this is the first time setting the device up on the WiFi network, the device will go into “WiFi Setup Mode”. The LED toggles between blue and red. 
 
 4 On your mobile phone, scan available WiFi networks. You will see a network called "AirWatch-AccessPoint". Connect to this network. Your phone will tell you that the network cannot connect to the internet, this is fine, proceed and connect phone to WiFi network called "AirWatch-AccessPoint". 
 
