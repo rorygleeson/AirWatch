@@ -56,7 +56,8 @@ OR
 
 9 The AirWatch device will fail to connect to WiFi and repeat the above steps. 
 
-
+10 AirWatch device will take a reading, and upload the data to the airwatch platform. If the HTTP upload is successfull, it will flash green LED 5 times. 
+   If the upload was not sucesfull, the LED will flash Red 5 times. 
 
 
 AirWatch Operation Cycle
