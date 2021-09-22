@@ -77,7 +77,7 @@ LED status
 ==========
 
 
-![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/AirWatchLED.png)
+![alt text](https://github.com/rorygleeson/AirWatch/blob/master/Devices/WiFi/wifiSetupDiagSep22-2021.png)
 
 
 
